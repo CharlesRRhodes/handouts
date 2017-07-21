@@ -1,8 +1,12 @@
+#SHINY app intro
+library(shiny)
+runExample('01_hello')
+
 # User Interface
-... <- ...(title = 'Hello, Shiny World!')
+ui <- navbarPage(title = 'Hello, Compute Inst!')
 
 # Server
-... <- function(...){}
+server <- function(input,output){}
 
 # Create the Shiny App
-shinyApp(...)
+shinyApp(ui = ui, server = server)

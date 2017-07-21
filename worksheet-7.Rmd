@@ -7,7 +7,7 @@ output:
 
 ```{r include = FALSE}
 # Set options for knitr at the beginning of the document
-knitr::opts_chunk$set(cache = TRUE, eval = FALSE)
+knitr::opts_chunk$set(cache = TRUE, eval = TRUE)
 ```
 
 # Database to Document with RMarkdown
@@ -56,7 +56,7 @@ The RMarkdown source for this lesson, with portions replaced by `...` that are f
 
 ## Exercise 1
 
-...
+To compare the output of your worksheet to this slide, press the "Knit" button in RStudio.
 
 ## RMarkdown Syntax
 
@@ -102,7 +102,13 @@ Embedding text between pairs of special characters induces some simple formattin
 
 ## Exercise 2
 
-...
+  character | format
+  --------- | ------
+  *         | *italics*
+  **        | **bold**
+  ^         | super^script^
+  ~~        | ~~strikethrough~~
+  
 
 ## RMarkdown Syntax
 
@@ -148,10 +154,16 @@ is accessible in another:
 vals + 1
 ```
 
+
 ## Exercise 3
 
-...
-
+```{r}
+library(RPostgreSQL)
+library(dplyr)
+con <- dbConnect(PostgreSQL(), host = 'localhost', dbname = 'portal')
+animals <- tbl(con, 'animals')
+animals
+```
 ## Construct the Pipeline
 
 If your entire pipeline can be scripted in R, then you could simply paste a long script into a single code chunk before moving on to generating content (e.g. tables or plots) for the final document.
